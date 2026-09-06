@@ -52,3 +52,6 @@ var TransBlend = Class.create(/** @lends TransBlend# */{
     elem2.fadeIn(this.delay);
   }
 });
+
+// the slide pages load this as a browser global
+window.TransBlend = TransBlend;

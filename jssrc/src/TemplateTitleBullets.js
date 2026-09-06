@@ -114,3 +114,6 @@ var TemplateTitleBullets = Class.create(/** @lends TemplateTitleBullets# */{
     this.layout.resize(0, 0, jQuery(window).width(), jQuery(window).height());
   }
 });
+
+// the slide pages load this as a browser global
+window.TemplateTitleBullets = TemplateTitleBullets;

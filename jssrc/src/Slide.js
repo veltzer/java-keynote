@@ -31,3 +31,6 @@ var Slide = Class.create(/** @lends Slide# */{
     return this.element;
   }
 });
+
+// the slide pages load this as a browser global
+window.Slide = Slide;

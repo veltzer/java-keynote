@@ -54,3 +54,6 @@ var TransFadeoutFadein = Class.create(/** @lends TransFadeoutFadein# */{
     elem1.fadeOut(this.delay, function() { elem2.fadeIn(object.delay); });
   }
 });
+
+// the slide pages load this as a browser global
+window.TransFadeoutFadein = TransFadeoutFadein;

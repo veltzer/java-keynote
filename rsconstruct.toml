@@ -17,7 +17,6 @@ src_dirs = ["src", "scripts"]
 
 [processor.shellcheck]
 src_dirs = ["scripts", "src"]
-args = ["--severity=error", "--shell=bash"]
 
 # ─── toml / yaml / json ──────────────────────────────────────────────────────
 
@@ -26,10 +25,14 @@ src_dirs = ["."]
 
 # Validate the presentations against the keynote schema, as the Makefile's
 # XML_CHECK rule did with `xmllint --noout --schema xsd/keynote.xsd`.
-[processor.xmllint]
+[processor.xmllint.presentations]
 src_dirs = ["presentations"]
 args = ["--schema", "xsd/keynote.xsd"]
 dep_inputs = ["xsd/keynote.xsd"]
+
+# the rest of the xml content, outside the bespoke [processor.xmllint.presentations] above
+[processor.xmllint.support]
+src_dirs = ["support"]
 
 # Spellcheck the presentation text, replacing the Makefile's interactive
 # `aspell --mode=sgml --check` (sgml mode comes from .aspell.conf). Accepted
@@ -79,3 +82,39 @@ targets = [
 # lint the GitHub Actions workflow files with actionlint
 [processor.actionlint]
 src_dirs = [".github/workflows"]
+
+# ─── markdown ────────────────────────────────────────────────────────────────
+
+[processor.rumdl]
+src_files = ["README.md"]
+
+# ─── php ─────────────────────────────────────────────────────────────────────
+
+[processor.php_lint]
+src_dirs = ["jssrc", "web"]
+
+# ─── java ────────────────────────────────────────────────────────────────────
+
+[processor.checkstyle]
+src_dirs = ["src/org/meta/keynote"]
+args = ["-c", "checkstyle.xml"]
+
+# ─── html ────────────────────────────────────────────────────────────────────
+
+[processor.htmlhint]
+src_dirs = ["jssrc"]
+src_files = ["index.html"]
+
+# ─── css ─────────────────────────────────────────────────────────────────────
+
+# not linted: jssrc/toolkits (vendored SyntaxHighlighter, highlight.js, prototype, jquery)
+[processor.stylelint]
+src_files = ["jssrc/keynote.css"]
+src_exclude_dirs = ["jssrc/toolkits"]
+
+# ─── javascript ──────────────────────────────────────────────────────────────
+
+# not linted: jssrc/toolkits (vendored SyntaxHighlighter, highlight.js, prototype, jquery)
+[processor.eslint]
+src_dirs = ["jssrc/src"]
+args = ["-c", ".eslint.config.js"]

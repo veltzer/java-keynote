@@ -104,3 +104,9 @@ function checkCloseTo(v, u, e) {
     throw 'value out of bounds';
   }
 }
+
+// the test pages call these helpers as browser globals
+window.checkCloseTo = checkCloseTo;
+window.checkExact = checkExact;
+window.measureElem = measureElem;
+window.measureText = measureText;

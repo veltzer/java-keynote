@@ -1,13 +1,3 @@
-body {
-	/* <body> by default takes about 8 pixels from every side. We don't want that */
-	margin-bottom: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-left: 0px;
-	/* disable the automatic scroll bar */
-	overflow: hidden;
-}
-
 /*
 .title {
 	font-size: 90px;
@@ -48,12 +38,15 @@ body {
 
 /* nice fonts with shadow */
 body {
-	/* without this -moz browsers will render the body as having 0 height */
+	/* <body> by default takes about 8 pixels from every side. We don't want that */
+	margin: 0;
+	/* disable the automatic scroll bar */
+	overflow: hidden;
+	/* without this some browsers will render the body as having 0 height */
 	height: 100%;
-	font-family: 'Lucida Grande';
+	/* the shorthand carries the family, so no separate font-family */
 	font: 14px "Lucida Grande","Trebuchet MS",Verdana,sans-serif;
-	text-shadow: 0pt 2px 5px rgba(0, 0, 0, 0.2); 
-	background: -webkit-linear-gradient(top , white, blue 350%);
-	background: -moz-linear-gradient(top, white, blue 350%);
+	text-shadow: 0pt 2px 5px rgba(0, 0, 0, 0.2);
+	background: linear-gradient(to bottom, white, blue 350%);
 	/* background-color: grey; */
 }

@@ -92,3 +92,6 @@ var Set = Class.create(/** @lends Set# */{
     }
   }
 });
+
+// the slide pages load this as a browser global
+window.Set = Set;

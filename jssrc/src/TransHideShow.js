@@ -50,3 +50,6 @@ var TransHideShow = Class.create(/** @lends TransHideShow# */{
     elem2.show();
   }
 });
+
+// the slide pages load this as a browser global
+window.TransHideShow = TransHideShow;
