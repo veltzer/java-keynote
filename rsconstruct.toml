@@ -1,5 +1,9 @@
 # rsconstruct build configuration for this repository.
 
+[build]
+# src_dirs entries name directories; "." (the whole tree) is a config error
+reject_dot_src_dirs = true
+
 [analyzer.markdown]
 
 [analyzer.python]
@@ -21,7 +25,7 @@ src_dirs = ["scripts", "src"]
 # ─── toml / yaml / json ──────────────────────────────────────────────────────
 
 [processor.taplo]
-src_dirs = ["."]
+src_files = [".rumdl.toml", "pyproject.toml", "rsconstruct.toml"]
 
 # Validate the presentations against the keynote schema, as the Makefile's
 # XML_CHECK rule did with `xmllint --noout --schema xsd/keynote.xsd`.
@@ -52,7 +56,8 @@ args = ["--mode=sgml"]
 [processor.script.check_veltzer_https]
 command = "scripts/check_veltzer_https.py"
 src_extensions = [".xml", ".xsd", ".js", ".html", ".php", ".css", ".md", ".java", ".py", ".txt"]
-src_dirs = ["."]
+src_dirs = ["doc", "jssrc", "presentations", "scripts", "src", "support", "web", "xsd"]
+src_files = [".eslint.config.js", "README.md", "checkstyle.xml", "index.html"]
 batch = true
 
 # The tool registry installs the aspell binary itself, but the English
