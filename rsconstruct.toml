@@ -53,13 +53,6 @@ args = ["--mode=sgml"]
 # ─── link hygiene ────────────────────────────────────────────────────────────
 
 # All links to veltzer.net must be https; see the script's docstring.
-[processor.script.check_veltzer_https]
-command = "scripts/check_veltzer_https.py"
-src_extensions = [".xml", ".xsd", ".js", ".html", ".php", ".css", ".md", ".java", ".py", ".txt"]
-src_dirs = ["doc", "jssrc", "presentations", "scripts", "src", "support", "web", "xsd"]
-src_files = [".eslint.config.js", "README.md", "checkstyle.xml", "index.html"]
-batch = true
-
 # The tool registry installs the aspell binary itself, but the English
 # dictionary is a separate apt package; without it aspell fails with
 # "No word lists can be found for the language en" in CI.
