@@ -2,9 +2,9 @@
 <!-- This presentation is here for me to test various features of keynote. 
 	Mark Veltzer, 2011 -->
 <presentation
-	xmlns="https://veltzer.net/keynote"
+	xmlns="https://veltzer.org/keynote"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="https://veltzer.net/keynote https://veltzer.net/keynote/xsd/keynote.xsd">
+	xsi:schemaLocation="https://veltzer.org/keynote https://veltzer.org/keynote/xsd/keynote.xsd">
 	<meta>
 		<title>
 			This is the title

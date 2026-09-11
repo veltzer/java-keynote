@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <presentation
-	xmlns="https://veltzer.net/keynote"
+	xmlns="https://veltzer.org/keynote"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="https://veltzer.net/keynote https://veltzer.net/keynote/xsd/keynote.xsd"
+	xsi:schemaLocation="https://veltzer.org/keynote https://veltzer.org/keynote/xsd/keynote.xsd"
 	>
 	<meta>
 		<title>The keynote slide manager</title>
@@ -100,7 +100,7 @@
 			<code language="xml"><![CDATA[
 			<?xml version="1.0" encoding="ISO-8859-1"?>
 			<presentation
-				xmlns:xsi="https://veltzer.net/keynote/"
+				xmlns:xsi="https://veltzer.org/keynote/"
 				xsi:noNamespaceSchemaLocation="keynote.xsd">
 			</presentation>
 			]]></code>
