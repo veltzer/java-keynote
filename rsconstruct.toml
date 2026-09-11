@@ -52,7 +52,7 @@ args = ["--mode=sgml"]
 
 # ─── link hygiene ────────────────────────────────────────────────────────────
 
-# All links to veltzer.net must be https; see the script's docstring.
+# All links to veltzer.org must be https; see the script's docstring.
 # The tool registry installs the aspell binary itself, but the English
 # dictionary is a separate apt package; without it aspell fails with
 # "No word lists can be found for the language en" in CI.
