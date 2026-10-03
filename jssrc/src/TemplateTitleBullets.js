@@ -26,7 +26,7 @@ var TemplateTitleBullets = Class.create(/** @lends TemplateTitleBullets# */{
     // for closure
     var object = this;
     // handle arguments
-    checkHasOnly(options, new Set('id'));
+    checkHasOnly(options, new KeynoteSet('id'));
     this.id = options.id;
 
     // create the structure

@@ -4,11 +4,11 @@
   @class a set implemented in javascript.
   @author mark.veltzer@gmail.com (Mark Veltzer)
 */
-var Set = Class.create(/** @lends Set# */{
+var KeynoteSet = Class.create(/** @lends KeynoteSet# */{
   /**
     Create a new instance of this class.
     @param {any} anything you pass will be a member of the set.
-    @return {Set} A new object of this type.
+    @return {KeynoteSet} A new object of this type.
     @author mark.veltzer@gmail.com (Mark Veltzer)
   */
   initialize: function() {
@@ -94,4 +94,4 @@ var Set = Class.create(/** @lends Set# */{
 });
 
 // the slide pages load this as a browser global
-window.Set = Set;
+window.KeynoteSet = KeynoteSet;

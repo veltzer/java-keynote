@@ -10,7 +10,7 @@
 */
 var LayoutFull = Class.create(/** @lends LayoutFull# */{
   initialize: function(options) {
-    checkExact(options, new Set());
+    checkExact(options, new KeynoteSet());
     this.element = undefined;
     this.doDebug = false;
   },

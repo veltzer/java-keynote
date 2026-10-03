@@ -9,7 +9,7 @@
 */
 var LayoutRatio = Class.create(/** @lends LayoutRatio# */{
   initialize: function(options) {
-    checkExact(options, new Set('ratio'));
+    checkExact(options, new KeynoteSet('ratio'));
     this.ratio = options.ratio;
     this.element = undefined;
     this.doDebug = false;

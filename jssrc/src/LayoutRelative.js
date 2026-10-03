@@ -11,7 +11,7 @@
 */
 var LayoutRelative = Class.create(/** @lends LayoutRelative# */{
   initialize: function(options) {
-    checkHasOnly(options, new Set('orientation'));
+    checkHasOnly(options, new KeynoteSet('orientation'));
     this.checkOrientation(options.orientation);
     this.orientation = options.orientation;
     this.elements = [];

@@ -10,7 +10,7 @@
 */
 var LayoutFlow = Class.create(/** @lends LayoutFlow# */{
   initialize: function(options) {
-    checkMustHave(options, new Set('lines'));
+    checkMustHave(options, new KeynoteSet('lines'));
     this.lines = options.lines;
     this.elements = [];
     this.doDebug = false;

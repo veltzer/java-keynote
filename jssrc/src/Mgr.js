@@ -14,8 +14,8 @@ var Mgr = Class.create(/** @lends Mgr# */{
     /*
      * Options section
      */
-    checkHasOnly(options, new Set('source', 'transition'));
-    checkMustHave(options, new Set('source'));
+    checkHasOnly(options, new KeynoteSet('source', 'transition'));
+    checkMustHave(options, new KeynoteSet('source'));
     this.source = options.source;
     if (!('transition' in options)) {
       this.transition = new TransHideShow();
