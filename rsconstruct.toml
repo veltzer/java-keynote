@@ -8,32 +8,32 @@ reject_dot_src_dirs = true
 
 [analyzer.python]
 
-[processor.ruff]
+[processor.checker.ruff]
 src_dirs = ["src", "scripts"]
 
 
-[processor.mypy]
+[processor.checker.mypy]
 src_dirs = ["src", "scripts"]
 
 # ─── shell ───────────────────────────────────────────────────────────────────
 
-[processor.shellcheck]
+[processor.checker.shellcheck]
 src_dirs = ["scripts", "src"]
 
 # ─── toml / yaml / json ──────────────────────────────────────────────────────
 
-[processor.taplo]
+[processor.checker.taplo]
 src_files = [".rumdl.toml", "pyproject.toml", "rsconstruct.toml"]
 
 # Validate the presentations against the keynote schema, as the Makefile's
 # XML_CHECK rule did with `xmllint --noout --schema xsd/keynote.xsd`.
-[processor.xmllint.presentations]
+[processor.checker.xmllint.presentations]
 src_dirs = ["presentations"]
 args = ["--schema", "xsd/keynote.xsd"]
 dep_inputs = ["xsd/keynote.xsd"]
 
-# the rest of the xml content, outside the bespoke [processor.xmllint.presentations] above
-[processor.xmllint.support]
+# the rest of the xml content, outside the bespoke [processor.checker.xmllint.presentations] above
+[processor.checker.xmllint.support]
 src_dirs = ["support"]
 
 # Spellcheck the presentation text, replacing the Makefile's interactive
@@ -41,7 +41,7 @@ src_dirs = ["support"]
 # jargon lives in .aspell.en.pws. Not zspell: its markdown extractor skips
 # tab-indented lines as code blocks, and these XML files are tab-indented
 # throughout, so zspell would silently check nothing.
-[processor.aspell]
+[processor.checker.aspell]
 src_dirs = ["presentations"]
 src_extensions = [".xml"]
 # --mode must be on the command line; aspell ignores a `mode` line in the
@@ -76,28 +76,28 @@ targets = [
 ]
 
 # lint the GitHub Actions workflow files with actionlint
-[processor.actionlint]
+[processor.checker.actionlint]
 src_dirs = [".github/workflows"]
 
 # ─── markdown ────────────────────────────────────────────────────────────────
 
-[processor.rumdl]
+[processor.checker.rumdl]
 src_files = ["README.md"]
 
 # ─── php ─────────────────────────────────────────────────────────────────────
 
-[processor.php_lint]
+[processor.checker.php_lint]
 src_dirs = ["jssrc", "web"]
 
 # ─── java ────────────────────────────────────────────────────────────────────
 
-[processor.checkstyle]
+[processor.checker.checkstyle]
 src_dirs = ["src/org/meta/keynote"]
 args = ["-c", "checkstyle.xml"]
 
 # ─── html ────────────────────────────────────────────────────────────────────
 
-[processor.tidy]
+[processor.checker.tidy]
 src_dirs = ["jssrc"]
 src_files = ["index.html"]
 
@@ -106,7 +106,7 @@ src_files = ["index.html"]
 # not linted: jssrc/toolkits (vendored SyntaxHighlighter, highlight.js, prototype, jquery)
 # Only .css is passed: biome.jsonc turns biome's JavaScript and JSON linters
 # off, oxlint covers JavaScript and ijsonlint covers JSON.
-[processor.biome]
+[processor.checker.biome]
 src_files = ["jssrc/keynote.css"]
 src_exclude_dirs = ["jssrc/toolkits"]
 src_extensions = [".css"]
@@ -114,6 +114,6 @@ src_extensions = [".css"]
 # ─── javascript ──────────────────────────────────────────────────────────────
 
 # not linted: jssrc/toolkits (vendored SyntaxHighlighter, highlight.js, prototype, jquery)
-[processor.oxlint]
+[processor.checker.oxlint]
 src_dirs = ["jssrc/src"]
 args = ["-c", ".oxlintrc.json"]
