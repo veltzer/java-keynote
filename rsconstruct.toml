@@ -26,7 +26,7 @@ src_dirs = ["scripts", "src"]
 src_files = [".rumdl.toml", "pyproject.toml", "rsconstruct.toml"]
 
 # Validate the presentations against the keynote schema, as the Makefile's
-# XML_CHECK rule did with `xmllint --noout --schema xsd/keynote.xsd`.
+# XML_CHECK rule did with `[XMLLINT] --noout --schema xsd/keynote.xsd`.
 [processor.checker.ixmllint.presentations]
 src_dirs = ["presentations"]
 schema = "xsd/keynote.xsd"
