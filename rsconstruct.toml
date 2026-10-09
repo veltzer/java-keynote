@@ -12,7 +12,7 @@ reject_dot_src_dirs = true
 src_dirs = ["src", "scripts"]
 
 
-[processor.checker.mypy]
+[processor.checker.pyrefly]
 src_dirs = ["src", "scripts"]
 
 # ─── shell ───────────────────────────────────────────────────────────────────
