@@ -97,7 +97,7 @@ args = ["-c", "checkstyle.xml"]
 
 # ─── html ────────────────────────────────────────────────────────────────────
 
-[processor.checker.tidy]
+[processor.checker.itidy]
 src_dirs = ["jssrc"]
 src_files = ["index.html"]
 
