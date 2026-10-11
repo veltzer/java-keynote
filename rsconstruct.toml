@@ -30,7 +30,6 @@ src_files = [".rumdl.toml", "pyproject.toml", "rsconstruct.toml"]
 [processor.checker.ixmllint.presentations]
 src_dirs = ["presentations"]
 schema = "xsd/keynote.xsd"
-dep_inputs = ["xsd/keynote.xsd"]
 
 # the rest of the xml content, outside the bespoke [processor.checker.ixmllint.presentations] above
 [processor.checker.ixmllint.support]
