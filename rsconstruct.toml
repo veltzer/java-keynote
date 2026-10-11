@@ -17,7 +17,7 @@ src_dirs = ["src", "scripts"]
 
 # ─── shell ───────────────────────────────────────────────────────────────────
 
-[processor.checker.shellcheck]
+[processor.checker.ishellcheck]
 src_dirs = ["scripts", "src"]
 
 # ─── toml / yaml / json ──────────────────────────────────────────────────────
@@ -91,9 +91,8 @@ src_dirs = ["jssrc", "web"]
 
 # ─── java ────────────────────────────────────────────────────────────────────
 
-[processor.checker.checkstyle]
+[processor.checker.icheckstyle]
 src_dirs = ["src/org/meta/keynote"]
-args = ["-c", "checkstyle.xml"]
 
 # ─── html ────────────────────────────────────────────────────────────────────
 
