@@ -119,4 +119,5 @@ src_extensions = [".css"]
 # not linted: jssrc/toolkits (vendored SyntaxHighlighter, highlight.js, prototype, jquery)
 [processor.checker.oxlint]
 src_dirs = ["jssrc/src"]
-args = ["-c", ".oxlintrc.json"]
+args = ["-c", ".oxlintrc.repo.json"]
+dep_inputs = [".oxlintrc.repo.json"]
