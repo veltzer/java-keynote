@@ -10,7 +10,7 @@ to pdf, odp and other formats.
 A schema is provided so that you will get help from any decent XML
 editor with writing your presentations.
 
-You can find more info about it in https://veltzer.github.io/java-keynote and also
+You can find more info about it in <https://veltzer.github.io/java-keynote> and also
 see a live demo there.
 
-Mark Veltzer, 2012-2014, mark.veltzer@gmail.com
+Mark Veltzer, 2012-2014, <mark.veltzer@gmail.com>
