@@ -1,5 +1,6 @@
 What is Keynote?
 ================
+
 keynote is a whole new way of thinking about slide shows.
 Instead of writing slides inside some big bloat like open office
 or MS office you write your slides in nice, clean, concise, XML files with
