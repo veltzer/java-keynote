@@ -28,11 +28,15 @@ src_files = [".rumdl.toml", "pyproject.toml", "rsconstruct.toml"]
 # Validate the presentations against the keynote schema, as the Makefile's
 # XML_CHECK rule did with `[XMLLINT] --noout --schema xsd/keynote.xsd`.
 [processor.checker.ixmllint.presentations]
+# warnings fail too, not only fatal errors
+strict = true
 src_dirs = ["presentations"]
 schema = "xsd/keynote.xsd"
 
 # the rest of the xml content, outside the bespoke [processor.checker.ixmllint.presentations] above
 [processor.checker.ixmllint.support]
+# warnings fail too, not only fatal errors
+strict = true
 src_dirs = ["support"]
 
 # Spellcheck the presentation text, replacing the Makefile's interactive
