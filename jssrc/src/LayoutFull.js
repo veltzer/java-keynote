@@ -24,8 +24,8 @@ var LayoutFull = Class.create(/** @lends LayoutFull# */{
   },
   addElement: function(elem, size) {
     this.debug('addElement ' + elem + ',' + size);
-    if (this.element != undefined) {
-      throw 'already have element';
+    if (this.element !== undefined) {
+      throw new Error('already have element');
     }
     this.element = elem;
   },

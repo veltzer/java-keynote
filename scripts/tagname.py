@@ -8,8 +8,7 @@ import subprocess  # for check_output, DEVNULL
 def get_version():
     """ Return git describe output, or 'test' when unavailable. """
     try:
-        ver=subprocess.check_output(['git', 'describe'],stderr=subprocess.DEVNULL).rstrip()
-        return ver
+        return subprocess.check_output(['git', 'describe'],stderr=subprocess.DEVNULL).rstrip()
     except (subprocess.CalledProcessError, OSError):
         return 'test'
 

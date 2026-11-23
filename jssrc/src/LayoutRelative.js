@@ -21,7 +21,7 @@ var LayoutRelative = Class.create(/** @lends LayoutRelative# */{
   },
   checkOrientation: function(orientation) {
     if (!(orientation in LayoutRelative.orientation)) {
-      throw 'bad orientation ' + orientation;
+      throw new Error('bad orientation ' + orientation);
     }
   },
   debug: function() {
@@ -44,7 +44,7 @@ var LayoutRelative = Class.create(/** @lends LayoutRelative# */{
       sum += size;
     });
     if (checkCloseTo(sum, 1, 0.00001)) {
-      throw 'sum!=1, sum=' + sum;
+      throw new Error('sum!=1, sum=' + sum);
     }
   },
   /**
@@ -68,7 +68,7 @@ var LayoutRelative = Class.create(/** @lends LayoutRelative# */{
     this.debug('resize: ' + x + ',' + y + ',' + width + ',' + height);
     this.debug('this.elements.length: ' + this.elements.length);
     this.checkAddToOne();
-    if (this.orientation == 'vertical') {
+    if (this.orientation === 'vertical') {
       var y_start = y;
       jQuery.each(this.elements, function(i, element) {
         var size = object.sizes[i];

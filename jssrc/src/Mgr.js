@@ -81,7 +81,7 @@ var Mgr = Class.create(/** @lends Mgr# */{
   },
   resize: function(force) {
     //this.debug('resize',jQuery(window).width(),jQuery(window).height());
-    if (jQuery(window).width() != this.old_width || jQuery(window).height() !=
+    if (jQuery(window).width() !== this.old_width || jQuery(window).height() !==
         this.old_height || force) {
       this.debug('real resize');
       this.old_width = jQuery(window).width();
@@ -99,24 +99,24 @@ var Mgr = Class.create(/** @lends Mgr# */{
     var onefunc = function(e) {
       //object.debug(e.keyCode,e.which);
       // 32 is space, 39 is right arrow, 34 is page down, 40 is down
-      if (e.keyCode == 32 || e.keyCode == 39 || e.keyCode == 34 ||
-          e.keyCode == 40) {
+      if (e.keyCode === 32 || e.keyCode === 39 || e.keyCode === 34 ||
+          e.keyCode === 40) {
         object.gotoNext();
         e.preventDefault();
       }
       // 8 is backspace, 37 is left arrow, 33 is page up, 38 is up
-      if (e.keyCode == 8 || e.keyCode == 37 || e.keyCode == 33 ||
-          e.keyCode == 38) {
+      if (e.keyCode === 8 || e.keyCode === 37 || e.keyCode === 33 ||
+          e.keyCode === 38) {
         object.gotoPrev();
         e.preventDefault();
       }
       // 36 is Home
-      if (e.keyCode == 36) {
+      if (e.keyCode === 36) {
         object.gotoBegin();
         e.preventDefault();
       }
       // 35 is End
-      if (e.keyCode == 35) {
+      if (e.keyCode === 35) {
         object.gotoEnd();
         e.preventDefault();
       }
@@ -131,12 +131,12 @@ var Mgr = Class.create(/** @lends Mgr# */{
     // debug
     //this.debug(node.nodeType);
     // 3 means text node
-    if (node.nodeType == 3) {
-      throw 'I dont think I should be here ' + node.textContent;
+    if (node.nodeType === 3) {
+      throw new Error('I dont think I should be here ' + node.textContent);
     }
     // 1 means element
-    if (node.nodeType == 1) {
-      if (node.localName == 'code') {
+    if (node.nodeType === 1) {
+      if (node.localName === 'code') {
         Mgr.checkOneChild(node);
         var e_item_div = jQuery('<div/>');
         var e_code = jQuery('<pre/>');
@@ -147,14 +147,14 @@ var Mgr = Class.create(/** @lends Mgr# */{
         e_item_div.append(e_code);
         return e_item_div;
       }
-      if (node.localName == 'concept' || node.localName == 'emphasis') {
+      if (node.localName === 'concept' || node.localName === 'emphasis') {
         Mgr.checkOneChild(node);
         var e_item_concept = jQuery('<span/>');
         e_item_concept.addClass(node.localName);
         e_item_concept.text(node.textContent);
         return e_item_concept;
       }
-      if (node.localName == 'image') {
+      if (node.localName === 'image') {
         Mgr.checkNoChildren(node);
         // TODO: what about the height and width of the images ?
         var e_item_img = jQuery('<img/>');
@@ -168,7 +168,7 @@ var Mgr = Class.create(/** @lends Mgr# */{
         e_item_img.addClass(node.localName);
         return e_item_img;
       }
-      if (node.localName == 'email') {
+      if (node.localName === 'email') {
         Mgr.checkOneChild(node);
         if (this.doRealLinks) {
           var e_item_a = jQuery('<a/>', {
@@ -177,22 +177,21 @@ var Mgr = Class.create(/** @lends Mgr# */{
           e_item_a.addClass(node.localName);
           e_item_a.text(node.textContent);
           return e_item_a;
-        } else {
-          var e_item_span = jQuery('<span/>');
-          e_item_span.addClass(node.localName);
-          e_item_span.addClass('fakemail');
-          if (this.doClickableLinks) {
-            e_item_span.click(function(e) {
-              Utils.fakeUse(e);
-              window.location = 'mailto:' + node.textContent;
-            });
-          }
-          e_item_span.text(node.textContent);
-          return e_item_span;
         }
+        var e_item_span = jQuery('<span/>');
+        e_item_span.addClass(node.localName);
+        e_item_span.addClass('fakemail');
+        if (this.doClickableLinks) {
+          e_item_span.click(function(e) {
+            Utils.fakeUse(e);
+            window.location = 'mailto:' + node.textContent;
+          });
+        }
+        e_item_span.text(node.textContent);
+        return e_item_span;
       }
       var type;
-      if (node.localName == 'title' || node.localName == 'bullet') {
+      if (node.localName === 'title' || node.localName === 'bullet') {
         type = '<span/>';
       } else {
         type = '<div/>';
@@ -205,7 +204,7 @@ var Mgr = Class.create(/** @lends Mgr# */{
       });
       e_item_full.addClass(node.localName);
       var layout;
-      if (node.hasAttribute('layout') || node.localName == 'slide') {
+      if (node.hasAttribute('layout') || node.localName === 'slide') {
         var l_type;
         if (node.hasAttribute('layout')) {
           l_type = node.getAttribute('layout');
@@ -219,29 +218,29 @@ var Mgr = Class.create(/** @lends Mgr# */{
       }
       jQuery.each(node.childNodes, function(index, child) {
         Utils.fakeUse(index);
-        if (child.nodeType != 3 && child.nodeType != 1) {
+        if (child.nodeType !== 3 && child.nodeType !== 1) {
           return;
         }
         // no text under slides
-        if (node.localName == 'slide' && child.nodeType == 3) {
+        if (node.localName === 'slide' && child.nodeType === 3) {
           //object.debug(child);
           return;
         }
-        if ((node.localName == 'title' || node.localName == 'bullet') &&
-            child.nodeType == 3) {
+        if ((node.localName === 'title' || node.localName === 'bullet') &&
+            child.nodeType === 3) {
           e_item_full.append(child.textContent);
           return;
         }
         // recursion
         var newElement = object.createElement(child);
         e_item_full.append(newElement);
-        if (node.hasAttribute('layout') || node.localName == 'slide') {
+        if (node.hasAttribute('layout') || node.localName === 'slide') {
           layout.addElement(newElement);
         }
       });
       return e_item_full;
     }
-    throw 'I really should not be here ' + node;
+    throw new Error('I really should not be here ' + node);
   },
   buildUp: function(doc) {
     // for closure
@@ -276,8 +275,8 @@ var Mgr = Class.create(/** @lends Mgr# */{
     document.title = this.title;
   },
   gotoSlide: function(num) {
-    if (num >= 0 && num < this.getSlideNum() && num != this.currentSlideNum) {
-      if (this.currentSlideNum != -1) {
+    if (num >= 0 && num < this.getSlideNum() && num !== this.currentSlideNum) {
+      if (this.currentSlideNum !== -1) {
         var elem1 = this.getCurrentElement();
         this.currentSlideNum = num;
         var elem2 = this.getCurrentElement();
@@ -360,13 +359,12 @@ Mgr.getTextFromSingleXpath = function(doc, xpath_expr) {
   Utils.fakeUse(xpath_expr);
   var l = doc.evaluate(xpath_expr, doc.documentElement, null,
       window.XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-  if (l.snapshotLength != 1) {
+  if (l.snapshotLength !== 1) {
     return '[-----------no title-------------]';
     //throw 'wrong number (' + l.snapshotLength + ') of elements for expr ' +
     //    xpath_expr;
-  } else {
-    return l.snapshotItem(0).textContent;
   }
+  return l.snapshotItem(0).textContent;
 };
 
 
@@ -379,13 +377,12 @@ Mgr.getTextFromSingleXpath = function(doc, xpath_expr) {
 */
 Mgr.getTextFromSingleNode = function(doc, name) {
   var l = doc.getElementsByTagName(name);
-  if (l.length != 1) {
+  if (l.length !== 1) {
     return '[-----------no copyright-------------]';
     //throw 'wrong number (' + l.length + ') of elements of type ['
     //+ name + ']';
-  } else {
-    return l[0].textContent;
   }
+  return l[0].textContent;
 };
 
 
@@ -394,8 +391,8 @@ Mgr.getTextFromSingleNode = function(doc, name) {
   @author mark.veltzer@gmail.com (Mark Veltzer)
 */
 Mgr.checkOneChild = function(node) {
-  if (node.nodeType != 3 && node.childNodes.length != 1) {
-    throw 'wrong number of childern for node ' + node;
+  if (node.nodeType !== 3 && node.childNodes.length !== 1) {
+    throw new Error('wrong number of childern for node ' + node);
   }
 };
 
@@ -417,7 +414,7 @@ Mgr.getOneChild = function(node) {
   @author mark.veltzer@gmail.com (Mark Veltzer)
 */
 Mgr.checkNoChildren = function(node) {
-  if (node.childNodes.length != 0) {
-    throw 'too many children for node ' + node;
+  if (node.childNodes.length !== 0) {
+    throw new Error('too many children for node ' + node);
   }
 };

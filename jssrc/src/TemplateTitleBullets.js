@@ -95,12 +95,12 @@ var TemplateTitleBullets = Class.create(/** @lends TemplateTitleBullets# */{
     @author mark.veltzer@gmail.com (Mark Veltzer)
   */
   addElement: function(role, element) {
-    if (role == 'title') {
+    if (role === 'title') {
       this.d1.append(element);
       this.ld1.addElement(element);
       this.resize();
     }
-    if (role == 'bullet') {
+    if (role === 'bullet') {
       this.d5.append(element);
       this.ld5.addElement(element);
       this.resize();

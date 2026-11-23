@@ -13,7 +13,7 @@ var KeynoteSet = Class.create(/** @lends KeynoteSet# */{
   */
   initialize: function() {
     this.items = {};
-    for (var i in arguments) {
+    for (var i = 0; i < arguments.length; i++) {
       this.add(arguments[i]);
     }
   },
@@ -48,7 +48,7 @@ var KeynoteSet = Class.create(/** @lends KeynoteSet# */{
     @author mark.veltzer@gmail.com (Mark Veltzer)
   */
   addObject: function(o) {
-    for (var prop in o) {
+    for (var prop of Object.keys(o)) {
       this.add(prop);
     }
   },
@@ -58,7 +58,7 @@ var KeynoteSet = Class.create(/** @lends KeynoteSet# */{
     @author mark.veltzer@gmail.com (Mark Veltzer)
   */
   removeObject: function(o) {
-    for (var prop in o) {
+    for (var prop of Object.keys(o)) {
       this.remove(prop);
     }
   },
@@ -76,7 +76,7 @@ var KeynoteSet = Class.create(/** @lends KeynoteSet# */{
   */
   toString: function() {
     var a = [];
-    for (var x in this.items) {
+    for (var x of Object.keys(this.items)) {
       a.push(x);
     }
     return a.join(',');
@@ -87,7 +87,7 @@ var KeynoteSet = Class.create(/** @lends KeynoteSet# */{
     @author mark.veltzer@gmail.com (Mark Veltzer)
   */
   foreach: function(func) {
-    for (var x in this.items) {
+    for (var x of Object.keys(this.items)) {
       func(x);
     }
   }

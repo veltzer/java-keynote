@@ -25,10 +25,10 @@ var Utils = Class.create(/** @lends Utils# */{
 */
 Utils.unite = function(o1, o2) {
   var ret = {};
-  for (var x in o1) {
+  for (var x of Object.keys(o1)) {
     ret[x] = o1[x];
   }
-  for (var y in o2) {
+  for (var y of Object.keys(o2)) {
     ret[y] = o2[y];
   }
   return ret;
@@ -43,7 +43,7 @@ Utils.unite = function(o1, o2) {
 */
 Utils.clone = function(o) {
   var ret = {};
-  for (var x in o) {
+  for (var x of Object.keys(o)) {
     ret[x] = o[x];
   }
   return ret;
@@ -99,8 +99,8 @@ Utils.arrClone = function(a) {
   @author mark.veltzer@gmail.com (Mark Veltzer)
 */
 Utils.checkType = function(v, t) {
-  if (typeof(v) != t) {
-    throw 'type is wrong';
+  if (typeof(v) !== t) {
+    throw new Error('type is wrong');
   }
 };
 
@@ -115,7 +115,7 @@ Utils.checkType = function(v, t) {
 Utils.checkContains = function(s1, s2) {
   for (var x in s1) {
     if (!(x in s2)) {
-      throw 'key ' + x + ' is bad';
+      throw new Error('key ' + x + ' is bad');
     }
   }
 };
