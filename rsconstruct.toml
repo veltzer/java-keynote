@@ -38,6 +38,7 @@ schema = "xsd/keynote.xsd"
 # warnings fail too, not only fatal errors
 strict = true
 src_dirs = ["support"]
+src_files = ["checkstyle.xml"]
 
 # Spellcheck the presentation text, replacing the Makefile's interactive
 # `aspell --mode=sgml --check` (sgml mode comes from .aspell.conf). Accepted
